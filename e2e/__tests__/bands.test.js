@@ -80,7 +80,7 @@ describe('bands api', () => {
     return postBand(dödsrit)
       .then(band => {
         return request
-          .delete(`api/bands/${band._id}`)
+          .delete(`/api/bands/${band._id}`)
           .expect(200);
       });
   });
