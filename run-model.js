@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 
 connect();
 
-const Band = require('./lib/models/bands');
+const Band = require('./lib/models/band');
 
 Band.create({
   name: 'Cult of Luna',

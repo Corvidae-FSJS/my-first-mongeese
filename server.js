@@ -2,7 +2,7 @@ require('dotenv').config();
 require('./lib/connect')();
 const express = require('express');
 const app = express();
-const Band = require('./lib/models/bands');
+const Band = require('./lib/models/band');
 
 app.use(express.json());
 
