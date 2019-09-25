@@ -1,5 +1,5 @@
 require('dotenv').config();
-const connect = require('./;lib/connect');
+const connect = require('./lib/connect');
 const mongoose = require('mongoose');
 
 connect();
@@ -23,4 +23,3 @@ Band.create({
   .then(() => {
     mongoose.disconnect();
   });
-  

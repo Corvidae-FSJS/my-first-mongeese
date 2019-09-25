@@ -2,7 +2,7 @@ require('dotenv').config();
 require('./lib/connect')();
 const express = require('express');
 const app = express();
-const Band = require('./lib/model/bands');
+const Band = require('./lib/models/bands');
 
 app.use(express.json());
 
@@ -14,7 +14,7 @@ app.get('./api/bands', (req, res, next) => {
     .catch(next);
 });
 
-app.get('./api/animals/:id', (req, res, next) => {
+app.get('./api/bands/:id', (req, res, next) => {
   Band.findById(req.params.id)
     .then(band => {
       res.json(band);
