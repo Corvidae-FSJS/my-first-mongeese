@@ -10,7 +10,7 @@ Band.create({
   name: 'Cult of Luna',
   genre: 'Doom Metal',
   guitarists: 3,
-  vocals: ['whispers', 'clean', 'bellow', 'scream'],
+  vocals: ['bellow'],
   synths: false,
   lyrics: {
     form: 'epic narrative',

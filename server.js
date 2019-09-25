@@ -6,7 +6,7 @@ const Band = require('./lib/models/bands');
 
 app.use(express.json());
 
-app.get('./api/bands', (req, res, next) => {
+app.get('/api/bands', (req, res, next) => {
   Band.find()
     .then(bands => {
       res.json(bands);
@@ -14,7 +14,7 @@ app.get('./api/bands', (req, res, next) => {
     .catch(next);
 });
 
-app.get('./api/bands/:id', (req, res, next) => {
+app.get('/api/bands/:id', (req, res, next) => {
   Band.findById(req.params.id)
     .then(band => {
       res.json(band);
@@ -22,10 +22,26 @@ app.get('./api/bands/:id', (req, res, next) => {
     .catch(next);
 });
 
-app.post('./api/bands', (req, res, next) => {
+app.post('/api/bands', (req, res, next) => {
+  Band.create(req.body)
+    .then(newBand => {
+      res.json(newBand);
+    })
+    .catch(next);
+});
+
+app.put('/api/bands/:id', (req, res, next) => {
+  Band.findByIdAndUpdate(req.params.id, req.body, { new: true })
+    .then(updateBand => {
+      res.json(updateBand);
+    })
+    .catch(next);
+});
+
+app.delete('/api/bands/:id', (req, res, next) => {
   Band.findByIdAndRemove(req.params.id)
-    .then(removed => {
-      res.json(removed);
+    .then(removeBand => {
+      res.json(removeBand);
     })
     .catch(next);
 });
